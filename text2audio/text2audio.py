@@ -2,7 +2,7 @@
 # @Date : 2020/03/26
 # @Author : Points
 # @Description:  自动生成iOS离线语音包文件(500以内的语音播报)
-# @Company: com.huiyinxun
+# @Company: hfqf123@126.com
 #!coding=utf-8
 import sys
 if sys.getdefaultencoding() != 'utf-8':
@@ -31,14 +31,14 @@ def checkMp3Path():
 
 #获取百度text2Audio的token,所需的client_id和client_secret去百度语音官网注册即可
 def getBaiduToken():
-    url = 'https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=gleXhGxXDtLTVYE6pza08hFA&client_secret=DzbPFSuTXBrOcyFI12WIMHZazYWkNS3D'
+    url = 'https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=&client_secret='
     rq = urllib2.Request(url)
     rs = json.loads(urllib2.urlopen(rq).read())
     return rs['access_token']
 
 #下载mp3文件
 def text2Audio(input,token):
-    url = 'http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok='+token+'&tex=蓝知收款'+input+'元&vol=9&per=0&spd=5&pit=5&aue=3'
+    url = 'http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok='+token+'&tex=收款'+input+'元&vol=9&per=0&spd=5&pit=5&aue=3'
     print url
     response=urllib2.Request(url)
     rs=urllib2.urlopen(response)
